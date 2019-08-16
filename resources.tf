@@ -10,3 +10,7 @@ resource "aws_instance" "default" {
   user_data = "${file("${var.bootstrap_path}")}"
   vpc_security_group_ids = ["${aws_security_group.default.id}"]
 }
+
+resource "aws_eip" "ip" {
+  instance = "${aws_instance.default.id}"
+}
