@@ -5,10 +5,10 @@
     become: true
     remote_user: ubuntu
     tasks:
-      - name: Copy yml file to the image
+      - name: Copy docker compose yml file to the image
         copy:
-          src: test-boilerplate.yml
+          src: apps.yml
           dest: /home/ubuntu
           follow: yes
       - name: Deploy Application
-        command: docker-compose -f test-boilerplate.yml up -d
+        command: docker-compose -f apps.yml up -d
