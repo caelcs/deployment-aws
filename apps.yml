@@ -3,7 +3,7 @@ services:
   web:
     image: nginx
     deploy:
-      replicas: 1
+      replicas: 2
       resources:
         limits:
           cpus: "0.1"

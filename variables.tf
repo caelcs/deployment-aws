@@ -28,7 +28,8 @@ variable "key_path" {
   type        = string
 }
 
-variable "bootstrap_path" {
-  description = "Script to install Docker Engine"
-  default     = "install-docker.sh"
+variable "total_workers" {
+  description = "total number of workers required."
+  type        = number
+  default     = 0
 }

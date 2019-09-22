@@ -1,0 +1,16 @@
+---
+  - name: Init Docker Swarm Worker
+    hosts: masters
+    gather_facts: True
+    become: true
+    remote_user: ubuntu
+    tasks:
+      - name: Swarm Init
+        command: docker swarm init --advertise-addr {{ inventory_hostname }}
+
+      - name: Master Token
+        command: docker swarm join-token manager -q
+        register: master_token
+
+      - name: Show Master Token
+        debug: var=master_token.stdout

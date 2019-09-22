@@ -63,6 +63,8 @@ eg.
 ```
 [masters]
 233.66.77.88
+[workers]
+223.66.00.01
 ```
 
 Update the app.yml with all your services that you want to deploy.
@@ -72,5 +74,7 @@ and finally:
 **IMPORTANT NOTE**: before execute this script please verify that the amazon instance has the instance state "RUNNING" and status checks "2/2 checks passed"
 
 ```
-ansible-playbook -i hosts playbook.yml
+ansible-playbook -i hosts playbook-master.yml
+ansible-playbook -i hosts playbook-worker.yml
+ansible-playbook -i hosts playbook-deploy.yml
 ```

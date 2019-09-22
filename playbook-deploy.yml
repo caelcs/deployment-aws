@@ -1,9 +1,8 @@
 ---
-  - name: Deploy platform
+  - name: Install Applications
     hosts: masters
-    gather_facts: True
-    become: true
     remote_user: ubuntu
+    gather_facts: False
     tasks:
       - name: Copy docker compose yml file to the image
         copy:
@@ -11,4 +10,4 @@
           dest: /home/ubuntu
           follow: yes
       - name: Deploy Application
-        command: docker-compose -f apps.yml up -d
+        command: docker stack deploy -c apps.yml svc-nginx
