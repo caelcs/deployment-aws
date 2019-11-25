@@ -4,6 +4,8 @@
     remote_user: ubuntu
     gather_facts: False
     tasks:
+      - name: Clean up docker 
+        command: docker system prune -f
       - name: Copy docker compose yml file to the image
         copy:
           src: apps.yml

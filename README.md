@@ -78,3 +78,7 @@ ansible-playbook -i hosts playbook-master.yml
 ansible-playbook -i hosts playbook-worker.yml
 ansible-playbook -i hosts playbook-deploy.yml
 ```
+
+In order to delete the master image you can execute:
+
+```terraform destroy -var-file="secrets.tfvars" -var-file="ssh_keys.tfvars" -target=module.master```

@@ -20,7 +20,7 @@ variable "ami" {
 
 variable "instance_type" {
   description = "Instance type"
-  default     = "t2.micro"
+  default     = "t2.medium"
 }
 
 variable "key_path" {
